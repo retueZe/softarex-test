@@ -1,0 +1,26 @@
+main.SearchPage
+    padding: 0 1in 0
+    > div.SearchPage-header
+        &.SearchPage-header-expanded
+            margin: 0.4in 0 0.3in
+        > div:first-child
+            display: grid
+            grid-template-columns: 1fr 1.5in
+            gap: 0.2in
+            height: 0.5in
+            > h1
+                margin: 0
+                white-space: nowrap
+                text-overflow: ellipsis
+                overflow: hidden
+        > div:last-child
+            display: grid
+            grid-template-columns: repeat(3, 1fr)
+            gap: 0.3in
+            margin-top: 0.2in
+            height: 0.5in
+            &.collapsed
+                height: 0
+                margin: 0
+            > div
+                height: 0.5in

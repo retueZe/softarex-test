@@ -1,0 +1,22 @@
+div.PhotoListView
+    display: grid
+    grid-template-rows: 1fr auto
+    width: 100%
+    > div:first-child
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 0.3in
+        > div
+            display: flex
+            flex-direction: column
+            gap: 0.3in
+    > div:last-child
+        display: flex
+        justify-content: center
+        margin: 0.2in 0 0.2in
+        > img
+            width: 0.5in
+            height: 0.5in
+            user-select: none
+            -webkit-user-select: none
+            -webkit-user-drag: none

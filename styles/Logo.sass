@@ -1,0 +1,16 @@
+a.Logo
+    display: block
+    > div
+        position: absolute
+        width: 100%
+        height: 100%
+        mask-repeat: no-repeat
+        -webkit-mask-repeat: no-repeat
+    > div:first-child
+        background-color: var(--primary-color)
+        mask-image: url('/assets/logo-back.svg')
+        -webkit-mask-image: url('/assets/logo-back.svg')
+    > div:last-child
+        background-color: var(--primary-text-color)
+        mask-image: url('/assets/logo-front.svg')
+        -webkit-mask-image: url('/assets/logo-front.svg')

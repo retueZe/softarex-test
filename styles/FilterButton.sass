@@ -1,0 +1,26 @@
+button.FilterButton
+    display: flex
+    flex-direction: row
+    gap: 0.15in
+    justify-content: flex-start
+    align-items: center
+    padding: 0 0.15in 0
+    width: 100%
+    height: 100%
+    cursor: pointer
+    border: 1px solid #ccc
+    border-radius: 5px
+    background: white
+    $transitionDuration: 0.25s
+    transition: border-color $transitionDuration
+    &:hover
+        border-color: gray
+        transition: border-color $transitionDuration
+    &.FilterButton-selected
+        background: #eee
+        border-color: gray
+    > div
+        width: 0.2in
+        height: 0.2in
+    > span
+        font-size: 1.2em

@@ -1,0 +1,34 @@
+div.Notification
+    background: white
+    display: flex
+    flex-direction: column
+    box-shadow: rgba(0, 0, 0, 0.25) 0 0 5px 5px
+    pointer-events: all
+    > div:first-child
+        height: 0.3in
+        display: grid
+        grid-template-columns: 1fr 0.3in
+        > div
+            display: grid
+            grid-template-rows: 5px 1fr
+            > div:first-child
+                border-bottom-right-radius: 5px
+            > div:last-child
+                padding: 0 0.1in 0
+        > button
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 0.07in
+            cursor: pointer
+            border: none
+            background: none
+            > div
+                width: 100%
+                height: 100%
+                background: black
+                mask-image: url('/assets/cross.svg')
+                -webkit-mask-image: url('/assets/cross.svg')
+    > div:last-child
+        padding: 0.1in
+        padding-top: 0

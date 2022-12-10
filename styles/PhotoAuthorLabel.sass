@@ -1,0 +1,21 @@
+div.PhotoAuthorLabel
+    position: absolute
+    width: 100%
+    height: 100%
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    align-items: flex-end
+    padding: 0.2in 0.3in 0.2in
+    > a
+        text-decoration: none
+        color: gray
+        opacity: 50%
+        font-size: 1.2em
+        $transitionDuration: 0.25s
+        transition: opacity $transitionDuration
+        > span
+            color: white
+        &:hover
+            opacity: 100%
+            transition: opacity $transitionDuration
