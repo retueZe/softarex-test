@@ -70,16 +70,21 @@ div.PhotoView
             > button.PhotoView-like-button
                 > div
                     background: white
+                    mask-image: url('/assets/unliked.svg')
                     -webkit-mask-image: url('/assets/unliked.svg')
             > button.PhotoView-like-button.PhotoView-liked
                 > div
                     background: var(--primary-color)
+                    mask-image: url('/assets/liked.svg')
+                    mask-repeat: no-repeat
+                    mask-size: 100% 100%
                     -webkit-mask-image: url('/assets/liked.svg')
                     -webkit-mask-repeat: no-repeat
                     -webkit-mask-size: 100% 100%
             > a.PhotoView-download
                 > div
                     background: white
+                    mask-image: url('/assets/download.svg')
                     -webkit-mask-image: url('/assets/download.svg')
     > img
         width: 100%
