@@ -6,8 +6,14 @@ export function buildPhotoListViewColumnChildren(
     photos: Readonly<Record<number, Photo>>,
     order: readonly number[]
 ): React.FunctionComponentElement<PhotoViewProps>[][] {
-    const columnChildren: React.FunctionComponentElement<PhotoViewProps>[][] = Array.from({length: 3}, () => [])
-    const columnHeights = Array.from({length: 3}, () => 0)
+    const columnCount = innerHeight / innerWidth > 1
+        ? innerHeight / innerWidth > 4 / 3
+            ? 1
+            : 2
+        : 3
+    const columnChildren: React.FunctionComponentElement<PhotoViewProps>[][] =
+        Array.from({length: columnCount}, () => [])
+    const columnHeights = Array.from({length: columnCount}, () => 0)
 
     for (let i = 0; i < order.length; i++) {
         const photo = photos[order[i]]

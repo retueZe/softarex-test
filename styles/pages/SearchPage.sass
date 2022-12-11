@@ -1,5 +1,5 @@
 main.SearchPage
-    padding: 0 1in 0
+    padding: 0 min(1in, 5%) 0
     > div.SearchPage-header
         &.SearchPage-header-expanded
             margin: 0.4in 0 0.3in
@@ -13,14 +13,38 @@ main.SearchPage
                 white-space: nowrap
                 text-overflow: ellipsis
                 overflow: hidden
+            @media screen and (max-width: 8.8in)
+                grid-template-columns: 1fr
+                grid-template-rows: 0 1fr
+                gap: 0
+                > h1
+                    visibility: hidden
         > div:last-child
             display: grid
             grid-template-columns: repeat(3, 1fr)
             gap: 0.3in
             margin-top: 0.2in
             height: 0.5in
+            @media screen and (max-width: 8.8in)
+                grid-template-columns: repeat(2, 1fr)
+                grid-template-rows: repeat(2, 1fr)
+                grid-template-areas: 'a b' 'c c'
+                row-gap: 0.2in
+                height: 1.2in
+            @media screen and (max-width: 5in)
+                grid-template-columns: 1fr
+                grid-template-rows: repeat(3, 1fr)
+                grid-template-areas: 'a' 'b' 'c'
+                height: 1.9in
             &.collapsed
                 height: 0
                 margin: 0
             > div
                 height: 0.5in
+                @media screen and (max-width: 8.8in)
+                    &:nth-child(1)
+                        grid-area: a
+                    &:nth-child(2)
+                        grid-area: b
+                    &:nth-child(3)
+                        grid-area: c

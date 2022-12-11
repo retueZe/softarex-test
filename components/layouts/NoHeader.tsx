@@ -5,12 +5,12 @@ import NotificationsView from '../NotificationsView'
 
 const NoHeaderLayout: React.FC<{children: ReactNode}> = ({children}) => {
     return (
-        <React.Fragment>
+        <div className='NoHeaderLayout'>
             <div className='NoHeaderLayout-menu-placeholder'></div>
             {children}
             <Menu fixed/>
             <NotificationsView/>
-        </React.Fragment>
+        </div>
     )
 }
 export default NoHeaderLayout

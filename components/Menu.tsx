@@ -8,7 +8,7 @@ const Menu: React.FC<MenuProps> = ({searchBarRef, backgroundOpacity, fixed}) => 
     fixed ??= false
 
     return (
-        <div className={`Menu ${fixed ? 'Menu-fixed' : ''}`}>
+        <div className={`Menu${fixed ? ' Menu-fixed' : ''}`}>
             <div className='Menu-background' style={{opacity: backgroundOpacity}}></div>
             <Logo/>
             <SearchBar searchBarRef={searchBarRef}/>

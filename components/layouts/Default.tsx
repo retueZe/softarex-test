@@ -34,8 +34,12 @@ const DefaultLayout: React.FC<{children: ReactNode}> = ({children}) => {
     // visible menu bg
     const [menuBackgorundOpacity, setMenuBackgroundOpacity] = useState(0)
     useLayoutEffect(() => {
-        const firstTreshold = searchBarPlaceholderRef.current!.offsetTop - 0.2 * ppi
-        const secondTreshold = Math.max(3 * ppi, 0.6 * innerHeight) - 0.8 * ppi
+        const firstTreshold = innerWidth > 5 * ppi
+            ? searchBarPlaceholderRef.current!.offsetTop - 0.2 * ppi
+            : 0
+        const secondTreshold = innerWidth > 5 * ppi
+            ? Math.max(3 * ppi, 0.6 * innerHeight) - 0.8 * ppi
+            : 0.9 * ppi
         const scrollOffset = scrollPosition.offset
 
         if (scrollOffset < firstTreshold) {
@@ -49,7 +53,7 @@ const DefaultLayout: React.FC<{children: ReactNode}> = ({children}) => {
     useEffect(() => {headerPhotoSlice.dispatch('downloadingRequested')}, [])
 
     return (
-        <React.Fragment>
+        <div className='DefaultLayout'>
             <div className='DefaultLayout-header'>
                 <div>{/* background */}</div>
                 <img src={headerPhoto?.src.original ?? ''} className={headerPhoto === null ? 'hidden' : undefined}/>
@@ -63,7 +67,7 @@ const DefaultLayout: React.FC<{children: ReactNode}> = ({children}) => {
             {children}
             <Menu searchBarRef={searchBarRef} backgroundOpacity={menuBackgorundOpacity}/>
             <NotificationsView/>
-        </React.Fragment>
+        </div>
     )
 }
 export default DefaultLayout

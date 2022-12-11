@@ -1,7 +1,6 @@
 form.SearchBar
     display: block
     position: fixed
-    left: 3.5in
     top: 0.2in
     width: max(5in, 100vw - 7in)
     > div
@@ -9,12 +8,13 @@ form.SearchBar
         border-radius: 5px
         height: 0.4in
         display: grid
-        grid-template-columns: auto 0.4in
+        grid-template-columns: 1fr 0.4in
         > input
             background: none
             border: none
             padding: 0 10px 0
             font-size: 1em
+            min-width: 0
         > button
             background: none
             border: none

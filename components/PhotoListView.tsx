@@ -17,10 +17,15 @@ const PhotoListView: React.FC = () => {
     const columnChildren = buildPhotoListViewColumnChildren(photos, photosOrder)
     const hideLoadingContainer = photosSlice.state.hasDownloadedAtLeastOnce &&
         photosOrder.length > photosSlice.state.totalCount - 0.5
+    const columnContainerClass = columnChildren.length < 2.5
+        ? columnChildren.length < 1.5
+            ? 'PhotoListView-one-column'
+            : 'PhotoListView-two-column'
+        : undefined
 
     return (
         <div className='PhotoListView'>
-            <div>
+            <div className={columnContainerClass}>
                 {columnChildren.map((children, i) => <div key={i}>{children}</div>)}
             </div>
             <div className={hideLoadingContainer ? 'collapsed' : undefined}>
