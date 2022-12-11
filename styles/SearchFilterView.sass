@@ -1,9 +1,8 @@
 div.SearchFilterView
-    position: relative
     width: 100%
     height: 100%
-    z-index: 900
     > button
+        position: relative
         display: flex
         flex-direction: row
         gap: 0.15in
@@ -18,6 +17,7 @@ div.SearchFilterView
         background: white
         $transitionDuration: 0.25s
         transition: border-color $transitionDuration
+        z-index: 900
         &:hover
             border-color: gray
             transition: border-color $transitionDuration
@@ -30,6 +30,7 @@ div.SearchFilterView
         > span
             font-size: 1.2em
     > div
+        position: relative
         display: flex
         flex-direction: column
         width: 100%
