@@ -12,7 +12,7 @@ const PhotoAuthorLabel: React.FC<PhotoAuthorLabelProps> = ({photo}) => {
     const photoByString = useLocalizationString('PhotoAuthorLabel.photo-by')
 
     return (
-        <div className={`PhotoAuthorLabel ${photo === null ? 'hidden' : undefined}`}>
+        <div className={`PhotoAuthorLabel${photo === null ? ' hidden' : ''}`}>
             <a href={photo?.photographerUrl} target='_blank'>
                 {photoByString} <span>{photo?.photographer}</span>
             </a>
