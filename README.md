@@ -24,7 +24,7 @@ scripts\build -p
 
 # Configurations
 
-All the scripts simply wraps the `npx snowpack` command. The development is stored at `snowpack.config.dev.mjs`, and the production one is stored at `snowpack.config.prod.mjs`. The production configuration builds the project in a `dist` directory bundled and minified. All the directories are mounted as-is except the `www` folder which is mounted at the root. The development configuration reduces the optimizations of the production build.
+All the scripts simply wraps the `npx snowpack` command. The development configuration is stored at `snowpack.config.dev.mjs`, and the production one is stored at `snowpack.config.prod.mjs`. The production configuration builds the project in a `dist` directory bundled and minified. All the directories are mounted as-is except the `www` folder which is mounted at the root. The development configuration reduces the optimizations of the production build.
 
 # Contents
 
