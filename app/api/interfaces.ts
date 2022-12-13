@@ -63,7 +63,3 @@ export type ApiCallError = {
     status: number
     statusText: string
 }
-
-// stub
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-export default ()=>{}

@@ -63,7 +63,3 @@ export enum DisplayableErrorCode {
     TOO_MANY_REQUESTS = HTTP_ERROR | 429,
     INTERNAL_SERVER_ERROR = HTTP_ERROR | 500
 }
-
-// stub
-// eslint-disable-next-line @typescript-eslint/no-empty-function
-export default ()=>{}
