@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { DisplayableError } from './interfaces'
+import { DisplayableError, ErrorsSliceState } from './interfaces'
 
 const errorsSlice = createSlice({
     name: 'errors',
     initialState: {
-        value: [] as DisplayableError[]
-    },
+        value: []
+    } as ErrorsSliceState,
     reducers: {
         pushed: (state, {payload}: PayloadAction<DisplayableError>) => ({
             ...state,

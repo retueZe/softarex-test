@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { withAddedPhotos } from '../../utils'
 import { ApiCallResponse, Photo } from '../api'
-import { ChangeRequest } from './interfaces'
+import { ChangeRequest, PhotosSliceState } from './interfaces'
 
 export const DEFAULT_PAGE_CAPACITY = 12
 export const MAX_PAGE_CAPACITY = 80
@@ -9,15 +9,14 @@ export const MAX_PAGE_CAPACITY = 80
 const photosSlice = createSlice({
     name: 'photos',
     initialState: {
-        value: {} as Record<number, Photo>,
-        order: [] as number[],
+        value: {},
+        order: [],
         pageCapacity: DEFAULT_PAGE_CAPACITY,
         currentPageNumber: 1,
         totalCount: 0,
         isDownloadingRequested: false,
-        // totalCount might be 0 either if there was an attempt to download, but the downloading failed or 0 photos was downloaded, or if there was no attempts to download. this flag helps to specify those cases
         hasDownloadedAtLeastOnce: false
-    },
+    } as PhotosSliceState,
     reducers: {
         pageCapacityChanged: (state, {payload}: PayloadAction<number>) => {
             payload = Math.floor(payload ?? DEFAULT_PAGE_CAPACITY)

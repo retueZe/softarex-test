@@ -1,4 +1,4 @@
-import { PayloadAction, Slice } from '@reduxjs/toolkit'
+import { PayloadAction } from '@reduxjs/toolkit'
 import { put, takeEvery } from 'redux-saga/effects'
 import { parseLikeList } from '../../utils'
 import { ApiCallResponse } from '../api'
@@ -18,4 +18,3 @@ function* loadLikesCoreSaga({payload}: PayloadAction<Readonly<ApiCallResponse>>)
                 storeChanges: false
             }))
 }
-type SliceState<S> = S extends Slice<infer T> ? T : never

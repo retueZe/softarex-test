@@ -1,7 +1,6 @@
-import { Slice } from '@reduxjs/toolkit'
 import { put, select, takeLeading } from 'redux-saga/effects'
 import { ApiCallResponse, makeApiCall } from '../api'
-import { photosSlice, searchFilterSlice } from '../slices'
+import { photosSlice, PhotosSliceState, SearchFilter } from '../slices'
 
 export const DEFAULT_TIMEOUT = 5000
 export default function* downloadPhotosSaga() {
@@ -9,8 +8,8 @@ export default function* downloadPhotosSaga() {
 }
 function* downloadPhotosCoreSaga() {
     const state = (yield select())
-    const photos: SliceState<typeof photosSlice> = state.photos
-    const filter: SliceState<typeof searchFilterSlice> = state.searchFilter
+    const photos: PhotosSliceState = state.photos
+    const filter: SearchFilter = state.searchFilter
 
     if (!photos.isDownloadingRequested) return
 
@@ -30,4 +29,3 @@ function* downloadPhotosCoreSaga() {
     
     yield put(photosSlice.actions.downloaded(response))
 }
-type SliceState<S> = S extends Slice<infer T> ? T : never

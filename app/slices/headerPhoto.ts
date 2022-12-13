@@ -1,12 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { HeaderPhotoSliceState } from '.'
 import { ApiCallError, Photo } from '../api'
 
 const headerPhotoSlice = createSlice({
     name: 'headerPhoto',
     initialState: {
-        photo: null as Photo | null,
+        photo: null,
         isDownloadingRequested: false
-    },
+    } as HeaderPhotoSliceState,
     reducers: {
         downloadingRequested: state =>
             state.isDownloadingRequested || state.photo !== null

@@ -1,5 +1,20 @@
 import LOCALIZATION from  '../../assets/localization.json'
-import { PhotoOrientation, PhotoSize, UserAvatar } from '../api'
+import { Photo, PhotoOrientation, PhotoSize, UserAvatar } from '../api'
+
+export type HeaderPhotoSliceState = {
+    photo: null | Photo,
+    isDownloadingRequested: boolean
+}
+
+export type PhotosSliceState = {
+    value: Record<number, Photo>,
+    order: number[],
+    pageCapacity: number,
+    currentPageNumber: number,
+    totalCount: number,
+    isDownloadingRequested: boolean,
+    hasDownloadedAtLeastOnce: boolean
+}
 
 export type LocalizationLanguage = keyof typeof LOCALIZATION
 export type LocalizationString = keyof typeof LOCALIZATION['en-US']
@@ -34,6 +49,9 @@ export type SearchFilter = {
     color: string | null
 }
 
+export type ErrorsSliceState = {
+    value: DisplayableError[]
+}
 export type DisplayableError = {
     code: DisplayableErrorCode
     messageInsertions: string[]
