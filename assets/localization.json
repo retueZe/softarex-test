@@ -26,7 +26,8 @@
         "displayable-error.http.unknown": "Unable to make a web request (%0%1).",
         "displayable-error.http.429": "Too many requests.",
         "displayable-error.http.500": "Internal server error.",
-        "ErrorNotification.title": "Error"
+        "ErrorNotification.title": "Error",
+        "ColorPicker.reset": "Reset"
     },
     "ru-RU": {
         "DefaultLayout.welcome": "Лучшие бесплатные стоковые фото, изображения без роялти и видео от талантливых авторов.",
@@ -55,6 +56,7 @@
         "displayable-error.http.unknown": "Не удалось произвести интернет-запрос (%0%1).",
         "displayable-error.http.429": "Слишком много запросов.",
         "displayable-error.http.500": "Внутренняя ошибка сервера.",
-        "ErrorNotification.title": "Ошибка"
+        "ErrorNotification.title": "Ошибка",
+        "ColorPicker.reset": "Сбросить"
     }
 }

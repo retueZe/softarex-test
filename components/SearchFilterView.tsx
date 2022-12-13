@@ -13,17 +13,19 @@ export type SearchFilterViewProps = {
 }
 
 const SearchFilterView: React.FC<SearchFilterViewProps> = (props) => {
-    const [expanded, setExpanded] = useState(false)
-    const collapse = () => setExpanded(false)
+    const [isExpanded, setIsExpanded] = useState(false)
+    const collapse = () => {
+        (document.activeElement as HTMLElement).blur()
+        setIsExpanded(false)
+    }
     const children = typeof props.children === 'undefined'
         ? undefined
         : props.children(collapse)
-    //!
     const menuRef = useRef<HTMLDivElement>(null)
     const buttonClickHandler = () => {
-        setExpanded(!expanded)
+        setIsExpanded(!isExpanded)
 
-        if (!expanded) {
+        if (!isExpanded) {
             if (typeof props.onExpanded === 'function') props.onExpanded()
         } else if (typeof props.onCollapsed === 'function')
             props.onCollapsed()
@@ -44,7 +46,7 @@ const SearchFilterView: React.FC<SearchFilterViewProps> = (props) => {
                 onClick={buttonClickHandler} onBlur={buttonBlurHandler}>
                 {props.content}
             </FilterButton>
-            <div ref={menuRef} className={expanded ? undefined : 'hidden'}
+            <div ref={menuRef} className={isExpanded ? undefined : 'hidden'}
                 onMouseDown={event => event.preventDefault()}>
                 {children}
             </div>

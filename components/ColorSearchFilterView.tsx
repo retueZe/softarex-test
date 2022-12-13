@@ -1,11 +1,11 @@
-import React, { useRef } from 'react'
-// import '../styles/ColorSearchFilterView.sass'
+import React, { useState } from 'react'
+import '../styles/ColorSearchFilterView.sass'
 import SearchFilterView from './SearchFilterView'
 import { useLocalizationString, usePhotos, useSearchFilter } from '../app/hooks'
 import MaskedIcon from './MaskedIcon'
 import ColorPicker from './ColorPicker'
 import { useNavigate } from 'react-router-dom'
-import { createSearchUrl } from '../utils'
+import { Color, createSearchUrl, formatRgbColor, hsvToRgb } from '../utils'
 
 const ColorSearchFilterView: React.FC = () => {
     const [filter, filterSlice] = useSearchFilter()
@@ -13,24 +13,43 @@ const ColorSearchFilterView: React.FC = () => {
     const selectedColor = filter.color
     const anyColorString = useLocalizationString('SearchPage.filter.color.any')
     const navigate = useNavigate()
-    const onColorPicked = (): void => {
-        const color = colorPickerRef.current!.value
-        filterSlice.dispatch('colorChanged', color)
+    const [colorContainer, setColorContainer] = useState<[Color | null]>([null])
+    const onColorPicked = (color: Color | null): void => {
+        const formattedColor = color === null
+            ? null
+            : formatRgbColor(hsvToRgb(color))
+        console.log(formattedColor, document.URL)
+        filterSlice.dispatch('colorChanged', formattedColor)
         photosSlice.dispatch('cleared')
         photosSlice.dispatch('downloadingRequested')
 
-        navigate(createSearchUrl({...filter, color: color}))
+        navigate(createSearchUrl({...filter, color: formattedColor}))
     }
-    const colorPickerRef = useRef<HTMLInputElement>(null)
-    const onExpanded = (): void => {
-        colorPickerRef.current!.click()
+    const createColorChangedHandler = (collapse: () => void) => (color: Color | null): void => {
+        if (colorContainer[0] === null && color === null) {
+            collapse()
+
+            return
+        }
+
+        colorContainer[0] = color
+
+        if (color === null) {
+            onColorPicked(null)
+
+            return
+        }
     }
 
     return (
         <SearchFilterView content={selectedColor ?? anyColorString} customFilter={selectedColor !== null}
             icon={<MaskedIcon color={selectedColor ?? 'none'} circle/>}
-            onExpanded={onExpanded} onCollapsed={onColorPicked}>
-            {() => (<ColorPicker inputRef={colorPickerRef}/>)}
+            onCollapsed={() => onColorPicked(colorContainer[0])}>
+            {collapse => (
+                <div className='ColorSearchFilterView-container'>
+                    <ColorPicker onChanged={createColorChangedHandler(collapse)}/>
+                </div>
+            )}
         </SearchFilterView>
     )
 }
