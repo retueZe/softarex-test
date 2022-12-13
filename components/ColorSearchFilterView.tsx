@@ -9,16 +9,16 @@ import { Color, createSearchUrl, formatRgbColor, hsvToRgb } from '../utils'
 
 const ColorSearchFilterView: React.FC = () => {
     const [filter, filterSlice] = useSearchFilter()
-    const [_, photosSlice] = usePhotos()
+    const [, photosSlice] = usePhotos()
     const selectedColor = filter.color
     const anyColorString = useLocalizationString('SearchPage.filter.color.any')
     const navigate = useNavigate()
-    const [colorContainer, setColorContainer] = useState<[Color | null]>([null])
+    const [colorContainer] = useState<[Color | null]>([null])
     const onColorPicked = (color: Color | null): void => {
         const formattedColor = color === null
             ? null
             : formatRgbColor(hsvToRgb(color))
-        console.log(formattedColor, document.URL)
+        
         filterSlice.dispatch('colorChanged', formattedColor)
         photosSlice.dispatch('cleared')
         photosSlice.dispatch('downloadingRequested')

@@ -65,4 +65,5 @@ export type ApiCallError = {
 }
 
 // stub
+// eslint-disable-next-line @typescript-eslint/no-empty-function
 export default ()=>{}

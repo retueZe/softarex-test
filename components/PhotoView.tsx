@@ -1,8 +1,7 @@
-import React, { CSSProperties, useState } from 'react'
+import React, { CSSProperties } from 'react'
 import '../styles/PhotoView.sass'
 import { usePhotos, useScrollPosition } from '../app/hooks'
 import { Photo } from '../app/api'
-import Icon from './Icon'
 import UserAvatarView from './UserAvatarView'
 
 export type PhotoViewProps = {
@@ -12,7 +11,7 @@ export type PhotoViewProps = {
 
 const PhotoView: React.FC<PhotoViewProps> = ({photo}) => {
     useScrollPosition()
-    const [_, photos] = usePhotos()
+    const [, photos] = usePhotos()
     let likeButtonClass = 'PhotoView-like-button'
 
     if (photo.isLiked)

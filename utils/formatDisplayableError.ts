@@ -5,7 +5,7 @@ import { formatDisplayableErrorCode } from './DisplayableErrorCode'
 
 export function formatDisplayableError(error: DisplayableError): string {
     const messageFormatKey = `displayable-error.${formatDisplayableErrorCode(error.code)}`
-    const [user, _] = useUser()
+    const [user] = useUser()
     const localizationStrings = LOCALIZATION[user.language]
     let message: string = localizationStrings[messageFormatKey] ?? localizationStrings['displayable-error.unknown']
 

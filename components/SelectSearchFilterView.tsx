@@ -52,7 +52,7 @@ const OPTIONS_INFO: OptionsInfo = {
 }
 
 const Option: React.FC<OptionProps> = ({name, index}) => {
-    const [photos, photosSlice] = usePhotos()
+    const [, photosSlice] = usePhotos()
     const [filter, filterSlice] = useSearchFilter()
     const value = OPTIONS_INFO[name].values[index]
     //??? TODO: wtf
@@ -89,7 +89,7 @@ const Option: React.FC<OptionProps> = ({name, index}) => {
 }
 
 const SelectSearchFilterView: React.FC<SelectSearchFilterViewProps> = ({name}) => {
-    const [filter, _] = useSearchFilter()
+    const [filter] = useSearchFilter()
     const selectedValue = filter[name] ?? null
     const formattedSelectedValue = selectedValue === null ? 'any' : OPTIONS_INFO[name].formatter(selectedValue as never)
     const selectedIndex = OPTIONS_INFO[name].values.indexOf(selectedValue as any)

@@ -1,4 +1,4 @@
-import React, { ReactNode, useLayoutEffect, useRef } from 'react'
+import React, { ReactNode } from 'react'
 import '../../styles/layouts/NoHeader.sass'
 import Menu from '../Menu'
 import NotificationsView from '../NotificationsView'

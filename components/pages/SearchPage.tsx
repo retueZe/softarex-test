@@ -10,8 +10,8 @@ import FilterButton from '../FilterButton'
 import MaskedIcon from '../MaskedIcon'
 
 const SearchPage: React.FC = () => {
-    const [_, photosSlice] = usePhotos()
-    const [filter, filterSlice] = useSearchFilter()
+    const [, photosSlice] = usePhotos()
+    const [filter] = useSearchFilter()
     const resultsFormat = photosSlice.state.hasDownloadedAtLeastOnce
         ? photosSlice.state.totalCount > 0.5
             ? useLocalizationString('SearchPage.results')
@@ -61,7 +61,7 @@ export default SearchPage
 
 function formatTotalCount(totalCount: number): string {
     let postfix = ''
-    const [user, _] = useUser()
+    const [user] = useUser()
     const postfixes: string[] = [
         useLocalizationString('postfix.thousands'),
         useLocalizationString('postfix.millions'),

@@ -67,11 +67,12 @@ function formatHexChannel(value: number): string {
 export function rgbToHsv ([r, g, b]: Color): Color {
     r /= 255, g /= 255, b /= 255
 
-    let max = Math.max(r, g, b), min = Math.min(r, g, b)
-    let h: number, s: number, v = max
+    const max = Math.max(r, g, b), min = Math.min(r, g, b)
+    let h: number
+    const v = max
   
-    var d = max - min
-    s = max == 0 ? 0 : d / max
+    const d = max - min
+    const s = max == 0 ? 0 : d / max
   
     if (max == min) {
         h = 0

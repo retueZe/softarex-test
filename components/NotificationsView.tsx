@@ -1,16 +1,11 @@
 import React, { useState } from 'react'
 import { useErrors } from '../app/hooks'
-import { DisplayableError, DisplayableErrorCode } from '../app/slices'
 import '../styles/NotificationsView.sass'
 import ErrorNotification from './ErrorNotification'
 
 const NotificationsView: React.FC = () => {
-    const error: DisplayableError = {
-        code: DisplayableErrorCode.INTERNAL_SERVER_ERROR,
-        messageInsertions: []
-    }
-    const [_, updateState] = useState([])
-    let [errorsOrder, setErrorsOrder] = useState<number[]>([])
+    const [, updateState] = useState([])
+    const [errorsOrder] = useState<number[]>([])
     const [errorsNoticed, setErrorsNoticed] = useState(0)
     const [errors, errorsSlice] = useErrors()
 

@@ -19,7 +19,7 @@ export function useSlice<
     R extends SliceCaseReducers<S> = SliceCaseReducers<S>,
     N extends string = string,
     U = S
->(slice: Slice<S, R, N>, selector: (state: S) => U): [U, UsedSlice<S, R, N, U>]
+>(slice: Slice<S, R, N>, selector: (state: S) => U): [U, UsedSlice<S, R, N>]
 /**
  * Adapts {@link slice} to `react`. Result fields:
  * - `name` — the name of the {@link slice}
@@ -31,9 +31,9 @@ export default function useSlice<
     R extends SliceCaseReducers<S> = SliceCaseReducers<S>,
     N extends string = string,
     U = S
->(slice: Slice<S, R, N>, selector?: (state: S) => U): [U, UsedSlice<S, R, N, U>] {
+>(slice: Slice<S, R, N>, selector?: (state: S) => U): [U, UsedSlice<S, R, N>] {
     const dispatch = useDispatch()
-    const instance: UsedSlice<S, R, N, U> = {
+    const instance: UsedSlice<S, R, N> = {
         name: slice.name,
         state: useSelector<any, S>(state => state[slice.name]),
         dispatch: (type, ...args) => {
@@ -60,8 +60,7 @@ export default function useSlice<
 export type UsedSlice<
     S = any,
     R extends SliceCaseReducers<S> = SliceCaseReducers<S>,
-    N extends string = string,
-    U = S
+    N extends string = string
 > = {
     name: N
     state: S
