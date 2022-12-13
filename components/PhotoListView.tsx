@@ -1,4 +1,4 @@
-import React, { CSSProperties, useState } from 'react'
+import React from 'react'
 import '../styles/PhotoListView.sass'
 import { usePhotos, useScrollPosition } from '../app/hooks'
 import { buildPhotoListViewColumnChildren } from '../utils'
@@ -8,9 +8,8 @@ const PhotoListView: React.FC = () => {
     const photosOrder = photosSlice.state.order
     const scrollPosition = useScrollPosition()
 
-    //!
-    // TODO
-    if (scrollPosition.hasReachedPosition(0.8, '%', 'bottom')) {
+    if (scrollPosition.hasReachedPosition(0.8, '%', 'bottom') &&
+        photosSlice.state.error === null) {
         photosSlice.dispatch('downloadingRequested')
     }
     

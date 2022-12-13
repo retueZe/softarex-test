@@ -1,9 +1,10 @@
 import LOCALIZATION from  '../../assets/localization.json'
-import { Photo, PhotoOrientation, PhotoSize, UserAvatar } from '../api'
+import { ApiCallError, Photo, PhotoOrientation, PhotoSize, UserAvatar } from '../api'
 
 export type HeaderPhotoSliceState = {
-    photo: null | Photo,
+    photo: Photo | null,
     isDownloadingRequested: boolean
+    error: ApiCallError | null
 }
 
 export type PhotosSliceState = {
@@ -13,7 +14,8 @@ export type PhotosSliceState = {
     currentPageNumber: number,
     totalCount: number,
     isDownloadingRequested: boolean,
-    hasDownloadedAtLeastOnce: boolean
+    hasDownloadedAtLeastOnce: boolean,
+    error: ApiCallError | null
 }
 
 export type LocalizationLanguage = keyof typeof LOCALIZATION

@@ -15,7 +15,8 @@ const photosSlice = createSlice({
         currentPageNumber: 1,
         totalCount: 0,
         isDownloadingRequested: false,
-        hasDownloadedAtLeastOnce: false
+        hasDownloadedAtLeastOnce: false,
+        error: null
     } as PhotosSliceState,
     reducers: {
         pageCapacityChanged: (state, {payload}: PayloadAction<number>) => {
@@ -31,7 +32,7 @@ const photosSlice = createSlice({
         downloadingRequested: state => !state.isDownloadingRequested &&
             (state.order.length < state.totalCount - 0.5 ||
             (state.totalCount < 0.5 && !state.hasDownloadedAtLeastOnce))
-            ? {...state, isDownloadingRequested: true}
+            ? {...state, error: null, isDownloadingRequested: true}
             : state,
         downloaded: (state, {payload}: PayloadAction<Readonly<ApiCallResponse>>) => payload.error === null
             ? {
@@ -46,6 +47,7 @@ const photosSlice = createSlice({
                 hasDownloadedAtLeastOnce: true
             } : {
                 ...state,
+                error: payload.error,
                 isDownloadingRequested: false,
                 hasDownloadedAtLeastOnce: true
             },
