@@ -4,6 +4,7 @@ import { useHeaderPhoto, useLocalizationString, usePpi, useScrollPosition } from
 import Menu from '../Menu'
 import PhotoAuthorLabel from '../PhotoAuthorLabel'
 import NotificationsView from '../NotificationsView'
+import SuggestionListView from '../SuggestionListView'
 
 const DefaultLayout: React.FC<{children: ReactNode}> = ({children}) => {
     const scrollPosition = useScrollPosition()
@@ -61,6 +62,7 @@ const DefaultLayout: React.FC<{children: ReactNode}> = ({children}) => {
                 <div className='DefaultLayout-welcome'>
                     <h1>{welcomeMessage}</h1>
                     <div ref={searchBarPlaceholderRef}>{/* placeholder */}</div>
+                    <SuggestionListView/>
                 </div>
                 <PhotoAuthorLabel photo={headerPhoto}/>
             </div>

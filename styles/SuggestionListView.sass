@@ -1,0 +1,25 @@
+div.SuggestionListView
+    display: flex
+    flex-direction: row
+    color: white
+    > span
+        font-weight: bold
+    > ul
+        display: flex
+        flex-direction: row
+        list-style: none
+        margin: 0
+        padding: 0
+        width: 100%
+        overflow: hidden
+        > li
+            &::after
+                content: ','
+                margin-right: 5px
+            &:last-child
+                &::after
+                    content: ''
+            > a
+                color: inherit
+                text-decoration: none
+                text-transform: lowercase
