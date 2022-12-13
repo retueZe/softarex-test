@@ -28,7 +28,10 @@
         "displayable-error.http.500": "Internal server error.",
         "ErrorNotification.title": "Error",
         "ColorPicker.reset": "Reset",
-        "SuggestionListView.prefix": "Suggested:"
+        "SuggestionListView.prefix": "Suggested:",
+        "MenuReference.discover": "Discover",
+        "MenuReference.license": "License",
+        "MenuReference.upload": "Upload"
     },
     "ru-RU": {
         "DefaultLayout.welcome": "Лучшие бесплатные стоковые фото, изображения без роялти и видео от талантливых авторов.",
@@ -59,6 +62,9 @@
         "displayable-error.http.500": "Внутренняя ошибка сервера.",
         "ErrorNotification.title": "Ошибка",
         "ColorPicker.reset": "Сбросить",
-        "SuggestionListView.prefix": "Предложения:"
+        "SuggestionListView.prefix": "Предложения:",
+        "MenuReference.discover": "Поиск фото",
+        "MenuReference.license": "Лицензия",
+        "MenuReference.upload": "Загрузка"
     }
 }

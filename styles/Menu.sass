@@ -4,8 +4,11 @@
     top: 0.1in
     width: calc(100% - 0.6in)
     height: 0.6in
-    display: grid
-    grid-template-columns: 1fr 1in
+    display: flex
+    flex-direction: row
+    justify-content: flex-end
+    align-items: center
+    gap: 0.1in
     z-index: 999
     &.Menu-fixed
         position: fixed
@@ -32,3 +35,12 @@
             top: 0
         @media screen and (max-width: 5in)
             visibility: hidden
+    > div.Menu-references-container
+        position: relative
+        z-index: 1000
+        height: 100%
+    > div.Menu-localization-picker-container
+        position: relative
+        z-index: 1000
+        width: 1in
+        height: 0.4in

@@ -3,6 +3,7 @@ import '../styles/Menu.sass'
 import Logo from './Logo'
 import LanguagePicker from './LanguagePicker'
 import SearchBar from './SearchBar'
+import MenuReferences from './MenuReferences'
 
 const Menu: React.FC<MenuProps> = ({searchBarRef, backgroundOpacity, fixed}) => {
     fixed ??= false
@@ -12,8 +13,12 @@ const Menu: React.FC<MenuProps> = ({searchBarRef, backgroundOpacity, fixed}) => 
             <div className='Menu-background' style={{opacity: backgroundOpacity}}></div>
             <Logo/>
             <SearchBar searchBarRef={searchBarRef}/>
-            <div>{/* placeholder */}</div>
-            <LanguagePicker options={['en-US', 'ru-RU']}/>
+            <div className='Menu-references-container'>
+                <MenuReferences/>
+            </div>
+            <div className='Menu-localization-picker-container'>
+                <LanguagePicker options={['en-US', 'ru-RU']}/>
+            </div>
         </div>
     )
 }
