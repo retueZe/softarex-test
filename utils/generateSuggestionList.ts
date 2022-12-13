@@ -1,14 +1,49 @@
-import { useLocalizationString } from '../app/hooks'
-import { LocalizationString } from '../app/slices'
-
-const SUGGESTION_COUNT = 40
 const SUGGESTION_LIST_LENGTH = 7
+const SUGGESTIONS: readonly string[] = [
+    'Nature',
+    'Dark',
+    'Auto',
+    'Tech',
+    'Christmas',
+    'Winter',
+    'Sunset',
+    'Art',
+    'Landscape',
+    'Office',
+    'Animal',
+    'House',
+    'Abstract',
+    'Coffee',
+    'Flowers',
+    'Sky',
+    'Forest',
+    'Dog',
+    'Space',
+    'City',
+    'Cat',
+    'Tea',
+    'Relationship',
+    'Friendship',
+    'Family',
+    'Summer',
+    'Fall',
+    'Spring',
+    'Pizza',
+    'Cookie',
+    'Childhood',
+    'Village',
+    'Football',
+    'Baseball',
+    'Beer',
+    'Moment',
+    'Room',
+    'People',
+    'Science',
+    'Midnight'
+]
 
 export function generateSuggestionList(): string[] {
-    const suggestionList: string[] = []
-
-    for (let i = 0; i < SUGGESTION_COUNT - 0.5; i++)
-        suggestionList.push(useLocalizationString(`suggestion-list.${i}` as LocalizationString))
+    const suggestionList = [...SUGGESTIONS]
 
     while (suggestionList.length > SUGGESTION_LIST_LENGTH + 0.5) {
         const index = Math.floor(Math.random() * suggestionList.length)
