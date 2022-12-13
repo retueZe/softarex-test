@@ -14,8 +14,6 @@ function* downloadPhotosCoreSaga() {
 
     if (!photos.isDownloadingRequested) return
 
-    console.log(filter)
-
     const response: ApiCallResponse = filter.query === null
         ? yield makeApiCall('/v1/curated', {
             page: photos.currentPageNumber,
