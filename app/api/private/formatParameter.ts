@@ -1,5 +1,5 @@
 import { formatPhotoSize } from '../../../utils'
-import { ApiCallPath, ApiCallParameterTypeMap, PhotoOrientation } from '../abstraction'
+import { ApiCallPath, ApiCallParameterTypeMap, PhotoOrientation } from '../interfaces'
 
 type QueryPairs = [string, string][]
 type ApiCallParameterFormatter<P extends ApiCallPath> =

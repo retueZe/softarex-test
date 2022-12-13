@@ -1,4 +1,4 @@
-import { ApiCallError, ApiCallResponse, Photo } from '../abstraction'
+import { ApiCallError, ApiCallResponse, Photo } from '../interfaces'
 
 export type ApiCallUnparsedResponse = ApiCallError | {
     photos: UnparsedPhoto[]

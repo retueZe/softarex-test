@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { createChangeAction } from '../../utils'
-import { SearchFilter } from './abstraction'
+import { SearchFilter } from './interfaces'
 
 const searchFilterSlice = createSlice({
     name: 'searchFilter',

@@ -6,7 +6,7 @@ import {
     ApiCallPathRequiringParameter,
     ApiCallParameterTypeMap,
     ApiCallResponse
-} from './abstraction'
+} from './interfaces'
 import { formatParameter } from './private/formatParameter'
 import { ApiCallUnparsedResponse, parseResponse } from './private/responseParsers'
 

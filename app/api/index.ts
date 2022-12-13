@@ -1,2 +1,2 @@
-export * from './abstraction'
+export * from './interfaces'
 export * from './makeApiCall'

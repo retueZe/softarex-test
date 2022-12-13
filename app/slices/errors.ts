@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { DisplayableError } from './abstraction'
+import { DisplayableError } from './interfaces'
 
 const errorsSlice = createSlice({
     name: 'errors',

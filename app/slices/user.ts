@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { createStoringChangeAction } from '../../utils'
-import { Theme, User } from './abstraction'
+import { Theme, User } from './interfaces'
 
 const userSlice = createSlice({
     name: 'user',

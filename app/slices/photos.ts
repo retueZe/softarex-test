@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { withAddedPhotos } from '../../utils'
 import { ApiCallResponse, Photo } from '../api'
-import { ChangeRequest } from './abstraction'
+import { ChangeRequest } from './interfaces'
 
 export const DEFAULT_PAGE_CAPACITY = 12
 export const MAX_PAGE_CAPACITY = 80
