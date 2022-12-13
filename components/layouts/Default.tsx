@@ -39,7 +39,7 @@ const DefaultLayout: React.FC<{children: ReactNode}> = ({children}) => {
             ? searchBarPlaceholderRef.current!.offsetTop - 0.2 * ppi
             : 0
         const secondTreshold = innerWidth > 5 * ppi
-            ? Math.max(3 * ppi, 0.6 * innerHeight) - 0.8 * ppi
+            ? Math.max(4 * ppi, 0.6 * innerHeight) - 0.8 * ppi
             : 0.9 * ppi
         const scrollOffset = scrollPosition.offset
 
@@ -52,6 +52,7 @@ const DefaultLayout: React.FC<{children: ReactNode}> = ({children}) => {
     })
     const [headerPhoto, headerPhotoSlice] = useHeaderPhoto()
     useEffect(() => {headerPhotoSlice.dispatch('downloadingRequested')}, [])
+    const isMenuFixed = innerWidth < 5 * ppi
 
     return (
         <div className='DefaultLayout'>
@@ -61,13 +62,15 @@ const DefaultLayout: React.FC<{children: ReactNode}> = ({children}) => {
                 <div>{/* placeholder */}</div>
                 <div className='DefaultLayout-welcome'>
                     <h1>{welcomeMessage}</h1>
-                    <div ref={searchBarPlaceholderRef}>{/* placeholder */}</div>
-                    <SuggestionListView/>
+                    <div className='DefaultLayout-search-bar-placeholder' ref={searchBarPlaceholderRef}>
+                        {/* placeholder */}
+                    </div>
+                    <div className='DefaultLayout-suggestion-list'><SuggestionListView/></div>
                 </div>
                 <PhotoAuthorLabel photo={headerPhoto}/>
             </div>
             {children}
-            <Menu searchBarRef={searchBarRef} backgroundOpacity={menuBackgorundOpacity}/>
+            <Menu searchBarRef={searchBarRef} backgroundOpacity={menuBackgorundOpacity} fixed={isMenuFixed}/>
             <NotificationsView/>
         </div>
     )

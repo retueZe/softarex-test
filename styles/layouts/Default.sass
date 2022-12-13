@@ -3,7 +3,7 @@
 div.DefaultLayout
     div.DefaultLayout-header
         position: relative
-        height: max(3in, 60vh)
+        height: max(4in, 60vh)
         display: grid
         grid-template-rows: 0.8in
         > div:first-child
@@ -33,9 +33,13 @@ div.DefaultLayout
                 margin: 0
                 color: white
                 user-select: none
-            > div
+            > div.DefaultLayout-search-bar-placeholder
                 margin-top: 0.15in
                 height: 0.4in
+            > div.DefaultLayout-suggestion-list
+                position: relative
+                z-index: 900
+                margin-top: 0.15in
             @media screen and (max-width: 8.8in)
                 margin: 0 0 0 0.6in
                 width: calc(100vw - 1.2in)
@@ -48,7 +52,7 @@ div.DefaultLayout
                 > h1
                     visibility: hidden
                     height: 0
-                > div
+                > div.DefaultLayout-search-bar-placeholder
                     margin: 0
         @media screen and (max-width: 5in)
             height: 1.7in
@@ -58,6 +62,13 @@ div.DefaultLayout
         @media screen and (max-width: 8.8in)
             left: 0.6in
             width: calc(100vw - 1.2in)
-            @media screen and (max-width: 5.5in)
+            @media screen and (max-width: 5in) //? why 5.5
                 left: 0.3in
                 width: calc(100vw - 2in)
+    .MenuReferences
+        @media screen and (max-width: 8.8in)
+            visibility: hidden
+            width: 0
+    .SuggestionListView
+        @media screen and (max-width: 5in)
+            visibility: hidden
