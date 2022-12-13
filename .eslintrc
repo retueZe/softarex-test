@@ -5,6 +5,7 @@
     "rules": {
         "quotes": ["error", "single"],
         "semi": ["error", "never"],
-        "no-console": "warn"
+        "no-console": "warn",
+        "@typescript-eslint/no-non-null-assertion": "off"
     }
 }
