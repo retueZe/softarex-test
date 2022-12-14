@@ -4,6 +4,7 @@ import DefaultLayout from '../layouts/Default'
 import { useLocalizationString } from '../../app/hooks'
 import PhotoListView from '../PhotoListView'
 import { initPage } from '../../utils'
+import CategoriesMenu from '../CategoriesMenu'
 
 const IndexPage: React.FC = () => {
     const trendingString = useLocalizationString('IndexPage.trending')
@@ -13,8 +14,9 @@ const IndexPage: React.FC = () => {
     return (
         <DefaultLayout>
             <main className='IndexPage'>
+                <div className='IndexPage-categories-menu-container'><CategoriesMenu/></div>
                 <h1>{trendingString}</h1>
-                <div><PhotoListView/></div>
+                <div className='IndexPage-photo-list-container'><PhotoListView/></div>
             </main>
         </DefaultLayout>
     )

@@ -31,7 +31,11 @@
         "SuggestionListView.prefix": "Suggested:",
         "MenuReference.discover": "Discover",
         "MenuReference.license": "License",
-        "MenuReference.upload": "Upload"
+        "MenuReference.upload": "Upload",
+        "CategoriesMenuReference.search": "Search",
+        "CategoriesMenuReference.videos": "Videos",
+        "CategoriesMenuReference.leaderboard": "Leaderboard",
+        "CategoriesMenuReference.challenges": "Challenges"
     },
     "ru-RU": {
         "DefaultLayout.welcome": "Лучшие бесплатные стоковые фото, изображения без роялти и видео от талантливых авторов.",
@@ -65,6 +69,10 @@
         "SuggestionListView.prefix": "Предложения:",
         "MenuReference.discover": "Поиск фото",
         "MenuReference.license": "Лицензия",
-        "MenuReference.upload": "Загрузка"
+        "MenuReference.upload": "Загрузка",
+        "CategoriesMenuReference.search": "Найти",
+        "CategoriesMenuReference.videos": "Видео",
+        "CategoriesMenuReference.leaderboard": "Таблица лидеров",
+        "CategoriesMenuReference.challenges": "Челленжи"
     }
 }
