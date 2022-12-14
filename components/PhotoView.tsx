@@ -3,6 +3,7 @@ import '../styles/PhotoView.sass'
 import { usePhotos, useScrollPosition } from '../app/hooks'
 import { Photo } from '../app/api'
 import UserAvatarView from './UserAvatarView'
+import { downloadImage } from '../utils'
 
 export type PhotoViewProps = {
     index: number
@@ -25,6 +26,10 @@ const PhotoView: React.FC<PhotoViewProps> = ({photo}) => {
 
         photos.dispatch('modified', modifiedPhoto)
     }
+    const onDownload = (event: React.MouseEvent) => {
+        event.preventDefault()
+        downloadImage(photo.src.original)
+    }
 
     return (
         <div className='PhotoView' style={style}>
@@ -39,7 +44,7 @@ const PhotoView: React.FC<PhotoViewProps> = ({photo}) => {
                     </a>
                 </div>
                 <div>
-                    <a className='PhotoView-download' href={photo.url} download>
+                    <a className='PhotoView-download' onClick={onDownload}>
                         <div>{/* icon */}</div>
                     </a>
                     <button className={likeButtonClass} onClick={onLikeButtonClick}>
