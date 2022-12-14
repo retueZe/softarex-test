@@ -1,6 +1,11 @@
 main.IndexPage
     > div.IndexPage-categories-menu-container
         margin-top: 0.5in
+        @media screen and (max-width: 8.8in)
+            visibility: hidden
+            margin-top: 0
+            .CategoriesMenu
+                height: 0
     > h1
         margin: 0.2in 0 0.3in
         text-align: center
